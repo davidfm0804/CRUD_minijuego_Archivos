@@ -13,8 +13,8 @@
             <tr>
                 <th>Nombre</th>
                 <th>Imagen</th>
-                <th>Numero de Etapas</th>
                 <th>Ambito</th>
+                <th>Numero de Etapas</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -24,8 +24,8 @@
                     echo '<tr>';
                     echo '<td>'.$minijuego['nombre'].'</td>';
                     echo '<td><img src="'.$minijuego['imagen'].'" alt="'.$minijuego['nombre'].'" style="max-width: 100px; height: auto;"></td>';
-                    echo '<td>'.$minijuego['num_etapas'].'</td>';
                     echo '<td>'.$minijuego['Anombre'].'</td>';
+                    echo '<td>'.$minijuego['num_etapas'].'</td>';
 
                     echo '<td>';
                     echo '<a href="./formulario_modificar.php?id='.$minijuego['idjuego'].'" class="modificar">Modificar</a>';
