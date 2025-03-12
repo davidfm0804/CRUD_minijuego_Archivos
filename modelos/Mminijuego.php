@@ -8,7 +8,8 @@ Class Mminijuego{
         $this->conexion = new mysqli(SERVIDOR,USUARIO,PASSWORD,BBDD);
     }
     public function mMostrarMinijuego(){
-        $SQL="SELECT * FROM minijuegos";
+        $SQL="SELECT minijuegos.idjuego, minijuegos.nombre,minijuegos.idambito,minijuegos.num_etapas,minijuegos.imagen,ambito.nombre as Anombre
+        FROM minijuegos inner join ambito on minijuegos.idambito=ambito.idambito";
         $stmt = $this->conexion->prepare($SQL);
         $stmt->execute();
         $datos = $stmt->get_result();
@@ -20,7 +21,8 @@ Class Mminijuego{
                 "nombre" => $fila['nombre'],
                 "idambito" => $fila['idambito'],
                 "num_etapas" => $fila['num_etapas'],
-                "imagen" => $fila['imagen']
+                "imagen" => $fila['imagen'],
+                "Anombre" => $fila['Anombre']
             ];
          }
         return $resultado;
