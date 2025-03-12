@@ -78,12 +78,18 @@ class Cminijuego {
         $numetapas = count($etapas);
         $idjuego = $_SESSION['idjuego'];
 
+       
         $minijuego = $this->objminijuego->mObtenerMinijuego($idjuego);
         if (!$minijuego) {
             return 'Minijuego no encontrado';
         }
         
         if(!empty($imagen['name'])){
+            $tipos = ['image/png', 'image/jpeg', 'image/gif','image/webp'];
+            if (!in_array($imagen['type'], $tipos)) {
+                return 'Formato de imagen no permitido. Solo se permiten PNG, JPG, GIF,y WebP.';
+            }
+            
             $imagenRuta = $minijuego['imagen'];
             if (file_exists($imagenRuta)) {
                 unlink($imagenRuta);
