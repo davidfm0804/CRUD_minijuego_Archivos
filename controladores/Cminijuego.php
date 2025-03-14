@@ -30,6 +30,10 @@ class Cminijuego {
         if (!in_array($imagen['type'], $tipos)) {
             return 'Formato de imagen no permitido. Solo se permiten PNG, JPG, GIF,y WebP.';
         }
+        $maxSize = 500 * 1024; // 500KB
+            if ($imagen['size'] > $maxSize) {
+                return 'El tamaño de la imagen no debe superar los 500 kb.';
+            } 
         // Subir la imagen
         $target_dir = "assets/img/";
         $target_file = $target_dir . basename($imagen["name"]);
@@ -88,6 +92,10 @@ class Cminijuego {
             $tipos = ['image/png', 'image/jpeg', 'image/gif','image/webp'];
             if (!in_array($imagen['type'], $tipos)) {
                 return 'Formato de imagen no permitido. Solo se permiten PNG, JPG, GIF,y WebP.';
+            }
+            $maxSize = 500 * 1024; // 500KB
+            if ($imagen['size'] > $maxSize) {
+                return 'El tamaño de la imagen no debe superar los 500 kb.';
             }
             
             $imagenRuta = $minijuego['imagen'];
